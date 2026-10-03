@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: splitsub
+    runtime: python
+    buildCommand: "pip install -r backend/requirements.txt"
+    startCommand: "cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        value: sqlite:///./splitsub.db
+      - key: DEFAULT_UPI_ID
+        value: splitsub@icici
+      - key: DEFAULT_UPI_NAME
+        value: SplitSub Settlements
+      - key: FRONTEND_URL
+        value: https://splitsub.onrender.com
