@@ -56,7 +56,7 @@ app.include_router(notifications.router, prefix=settings.API_V1_STR)
 app.include_router(analytics.router, prefix=settings.API_V1_STR)
 
 # Serve the built React app from the same FastAPI service for a simple one-URL deployment.
-STATIC_DIR = Path(__file__).resolve().parents[2] / "static"
+STATIC_DIR = Path(__file__).resolve().parents[1] / "static"
 INDEX_FILE = STATIC_DIR / "index.html"
 
 @app.get("/", include_in_schema=False)
